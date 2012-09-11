@@ -1,0 +1,5 @@
+Fabric==1.4.3
+docopt==0.5.0
+pycrypto==2.6
+ssh==1.7.14
+wsgiref==0.1.2
