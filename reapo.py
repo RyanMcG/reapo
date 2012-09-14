@@ -14,14 +14,33 @@ Options:
   -v --verbose  print additional information
   --version     print the version number
 """
-from docopt import docopt
+from docopt import docopt, printable_usage
 from fabric.colors import green, red
-from fabric.api import env
+from fabric.api import env, run
+from fabric.state import output
+from fabric.network import disconnect_all
 version = "0.1.0-SNAPSHOT"
+
+usage_str = printable_usage(__doc__)
+
+# Enable using hosts defined in ssh config.
+env.use_ssh_config = True
+
+# Set the default shell to be `sh` instead of `bash`.
+env.shell = "/bin/sh -c"
+
+output.commands = False
+
+
+def display_error(e):
+    print(red('ERROR: ', True) + e)
+    print(usage_str)
 
 
 def create_repo(repo_path):
-    return (False, "Oops!")
+    """Do it!"""
+    res = run('uname -a', shell=False)
+    return (res if res.failed else green, res)
 
 
 def reapo(arguments):
