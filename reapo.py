@@ -34,7 +34,19 @@ output.commands = False
 
 
 def display_error(e):
-    print(red('ERROR: ', True) + e)
+    """Display the given message as an error to the user and print the usage
+    string.
+
+    >>> display_error("Oh no!")
+    \033[1;31mERROR: \033[0mOh no!
+    <BLANKLINE>
+    Usage:
+      reapo [-v] [<repo>]
+      reapo [-v] [<host>] <repo>
+      reapo --help
+      reapo --version
+    """
+    print(red('ERROR: ', True) + e + "\n")
     print(usage_str)
 
 
