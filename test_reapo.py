@@ -57,8 +57,9 @@ def A_git_repository_exists_at(repo_path, bare=False):
     world.assertTrue(exists(repo_path),
                      "Nothing exists at the given path (\"%s\")." % repo_path)
     with cd(repo_path):
-        res = reapo.run('git ls-remote')
+        res = reapo.run('git config core.bare')
     world.assertTrue(res.succeeded)
+    world.assertEqual(res, 'true' if bare else 'false')
 
 # Test cases ------------------------------------------------------------------
 
