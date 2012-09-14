@@ -16,7 +16,7 @@ Options:
 """
 from docopt import docopt, printable_usage
 from fabric.colors import green, red
-from fabric.api import env, run
+from fabric.api import env, run, cd
 from fabric.state import output
 from fabric.network import disconnect_all
 import sys
@@ -52,7 +52,9 @@ def display_error(e):
 
 def create_repo(repo_path):
     """Do it!"""
-    res = run('uname -a', shell=False)
+    run('mkdir -p %s' % repo_path)
+    with cd(repo_path):
+        res = run('git init --bare', shell=False)
     return (res if res.failed else green, res)
 
 
