@@ -44,7 +44,7 @@ def create_repo(repo_path):
     return (res if res.failed else green, res)
 
 
-def reapo(arguments):
+def reapo(arguments, disconnect=True):
     """Main function which delegates to fabric tasks."""
     host = arguments['<host>']
     if host:
@@ -53,7 +53,10 @@ def reapo(arguments):
         print(color(message))
     else:
         display_error("Host not specified!")
-    disconnect_all()
+
+    # Default to disconnect, but allow argument override.
+    if disconnect:
+        disconnect_all()
 
 
 def main():
