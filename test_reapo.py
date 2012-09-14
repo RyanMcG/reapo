@@ -70,6 +70,8 @@ class ReapoStories(TestCase):
     def setUp(self):
         """Setup ReapoStories tests."""
         super(ReapoStories, self).setUp()
+        # Since this is testing we override output.commands to True.
+        reapo.output.commands = True
 
     def tearDown(self):
         """Tear down ReapoStories."""
