@@ -45,15 +45,14 @@ def create_repo(repo_path):
 
 def reapo(arguments):
     """Main function which delegates to fabric tasks."""
-    print(arguments)
     host = arguments['<host>']
     if host:
-        env.hosts = host
-        (success, message) = create_repo(arguments['<repo>'])
-        color = green if success else red
+        env.host_string = host
+        (color, message) = create_repo(arguments['<repo>'])
         print(color(message))
     else:
-        print(red("host not specified."))
+        display_error("Host not specified!")
+    disconnect_all()
 
 
 def main():
