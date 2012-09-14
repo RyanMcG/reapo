@@ -19,6 +19,7 @@ from fabric.colors import green, red
 from fabric.api import env, run
 from fabric.state import output
 from fabric.network import disconnect_all
+import sys
 version = "0.1.0-SNAPSHOT"
 
 usage_str = printable_usage(__doc__)
@@ -58,7 +59,7 @@ def reapo(arguments):
 def main():
     """Simply runs the script."""
     # Parse options based on docstring above. If it is the first usage then...
-    arguments = docopt(__doc__, version=version)
+    arguments = docopt(__doc__, argv=sys.argv[1:], version=version)
     # continue by calling this function.
     reapo(arguments)
 
