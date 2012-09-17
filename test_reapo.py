@@ -19,6 +19,8 @@ from fabric.api import cd
 from fabric.colors import yellow
 from fabric.contrib.files import exists
 
+doctest.ELLIPSIS_MARKER = '/*/'
+
 
 # Given functions -------------------------------------------------------------
 
