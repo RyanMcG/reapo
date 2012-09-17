@@ -37,8 +37,8 @@ def display_error(e):
     """Display the given message as an error to the user and print the usage
     string.
 
-    >>> display_error("Oh no!")
-    \033[1;31mERROR: \033[0mOh no!
+    >>> display_error("Oh no!") # doctest: +ELLIPSIS
+    /*/ERROR:/*/ Oh no!
     <BLANKLINE>
     Usage:
       reapo [-v] [<repo>]
@@ -46,7 +46,7 @@ def display_error(e):
       reapo --help
       reapo --version
     """
-    print(red('ERROR: ', True) + e + "\n")
+    print(red('ERROR:', True) + ' ' + e + "\n")
     print(usage_str)
 
 
