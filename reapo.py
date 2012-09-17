@@ -55,7 +55,7 @@ def create_repo(repo_path):
     run('mkdir -p %s' % repo_path)
     with cd(repo_path):
         res = run('git init --bare', shell=False)
-    return (res if res.failed else green, res)
+    return res
 
 
 def reapo(arguments, disconnect=True):
@@ -63,7 +63,9 @@ def reapo(arguments, disconnect=True):
     host = arguments['<host>']
     if host:
         env.host_string = host
-        (color, message) = create_repo(arguments['<repo>'])
+        repo_path = arguments['<repo>']
+        message = create_repo(repo_path)
+        color = red if message.failed else green
         print(color(message))
     else:
         display_error("Host not specified!")
