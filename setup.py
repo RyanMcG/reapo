@@ -24,7 +24,7 @@ setup(name='reapo',
           ]
       },
       classifiers=['Development Status :: 4 - Beta',
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 3']
+                   'Programming Language :: Python',
+                   'Programming Language :: Python :: 2',
+                   'Programming Language :: Python :: 3']
       )
