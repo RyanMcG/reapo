@@ -18,6 +18,7 @@ setup(name='reapo',
       long_description=long_description,
       url='https://github.com/RyanMcG/reapo',
       install_requires=requirements,
+      py_modules=['reapo'],
       entry_points={
           'console_scripts': [
               'reapo = reapo:main'
