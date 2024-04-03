@@ -5,9 +5,6 @@ reapo
 A simple tool for creating remote repositories over ssh.
 --------------------------------------------------------
 
-:Author: Ryan McGowan
-:Email: ryan@ryanmcg.com
-
 Introduction
 ------------
 
